@@ -3,7 +3,7 @@ var InheritableAudioContext = require('../')
 
 var AudioContext = (window.AudioContext || window.webkitAudioContext)
 
-test(function(t){
+test("extend existing", function(t){
   var rootContext = new AudioContext()
   var subContext = InheritableAudioContext(rootContext)
   var subContext2 = Object.create(subContext)
@@ -38,6 +38,21 @@ test(function(t){
 
   t.ok(subContext instanceof InheritableAudioContext, 'instanceof InheritableAudioContext')
   t.notOk(subContext instanceof AudioContext, 'not instanceof InheritableAudioContext')
+
+  t.end()
+})
+
+test('copy params from existing', function(t){
+  var context = new AudioContext()
+  context.sources = {
+    sample: {}
+  }
+
+  var subContext = InheritableAudioContext(context)
+  t.ok(subContext.sources === undefined)
+
+  var subContextWithAttributes = InheritableAudioContext(context, true)
+  t.equal(subContextWithAttributes.sources, context.sources)
 
   t.end()
 })

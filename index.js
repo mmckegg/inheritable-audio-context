@@ -1,6 +1,7 @@
-var AudioContext = (global.AudioContext || global.webkitAudioContext)
-
 module.exports = InheritableAudioContext
+
+var AudioContext = (global.AudioContext || global.webkitAudioContext)
+var baseContext = new AudioContext()
 
 function InheritableAudioContext(audioContext, copyExtendedAttributes){
   
@@ -12,11 +13,11 @@ function InheritableAudioContext(audioContext, copyExtendedAttributes){
     }
   }
   
-  this.parentContext = audioContext || InheritableAudioContext.prototype
+  this.parentContext = audioContext || baseContext
 
   if (audioContext && copyExtendedAttributes){
     for (var k in audioContext){
-      if (k in audioContext && !InheritableAudioContext.prototype[k]){
+      if (k in audioContext && baseContext[k] == undefined){
         this[k] = audioContext[k]
       }
     }
@@ -38,7 +39,6 @@ function proxyProperty(target, k){
   })
 }
 
-var baseContext = new AudioContext()
 var proto = InheritableAudioContext.prototype = {
   constructor : InheritableAudioContext
 }
