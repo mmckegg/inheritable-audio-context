@@ -3,6 +3,17 @@ inheritable-audio-context
 
 Wrap an AudioContext to allow inheritance and additional properties.
 
+If you want to do this (for whatever reason):
+
+```js
+var context = new AudioContext()
+var subContext = Object.create(context)
+subContext.someValueOnlyOnSubContext = 'VALUE'
+var gain = subContext.createGain() // TypeError: Illegal invocation
+```
+
+It throws an error. This module allows you to achieve the same thing but without the error.
+
 ## Install
 
 ```bash
