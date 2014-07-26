@@ -1,0 +1,43 @@
+{
+  "name": "inheritable-audio-context",
+  "version": "0.0.0",
+  "description": "Wrap an AudioContext to allow inheritance and additional properties.",
+  "main": "index.js",
+  "scripts": {
+    "test": "testling -x open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmckegg/inheritable-audio-context.git"
+  },
+  "keywords": [
+    "web",
+    "audio",
+    "api",
+    "waapi",
+    "AudioContext",
+    "Object.create",
+    "inherit",
+    "extend",
+    "wrap",
+    "browser"
+  ],
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ff/25..latest",
+      "chrome/36..latest",
+      "safari/6..latest"
+    ]
+  },
+  "author": "Matt McKegg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmckegg/inheritable-audio-context/issues"
+  },
+  "homepage": "https://github.com/mmckegg/inheritable-audio-context",
+  "devDependencies": {
+    "tape": "^2.13.4",
+    "testling": "^1.7.0"
+  }
+}
