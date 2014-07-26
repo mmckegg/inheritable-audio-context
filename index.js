@@ -26,11 +26,7 @@ function InheritableAudioContext(audioContext, copyExtendedAttributes){
 
 function functionProxy(k){
   return function(){
-    var result = this.parentContext[k].apply(this.parentContext, arguments)
-    if (result && result.context == this.parentContext){
-      result.context = this
-    }
-    return result
+    return this.parentContext[k].apply(this.parentContext, arguments)
   }
 }
 

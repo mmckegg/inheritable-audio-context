@@ -14,12 +14,16 @@ test(function(t){
     subGain.connect(rootGain)
   })
 
+  // unfortunately can't make this pass
+  //var gain = subContext.createGain()
+  //t.equal(gain.context, subContext)
+
   subContext.someValue = { test: 123 }
   t.ok(rootContext.someValue === undefined)
   t.equal(subContext.someValue, subContext2.someValue)
 
   subContext2.anotherValue = { value: 456 }
-  t.ok(subContext.anotherValue === undefined, 'value not tranlated up prototype tree')
+  t.ok(subContext.anotherValue === undefined, 'value not translated up prototype tree')
 
   var originalObject = { foo: 'bar' }
   var anotherObject = { foo: 'another value' }
