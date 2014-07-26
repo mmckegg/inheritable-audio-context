@@ -51,3 +51,5 @@ for (var k in baseContext){
 
 proxyProperty(proto, 'currentTime')
 proxyProperty(proto, 'sampleRate')
+proxyProperty(proto, 'destination')
+proxyProperty(proto, 'listener')
