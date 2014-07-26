@@ -1,6 +1,6 @@
 {
   "name": "inheritable-audio-context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wrap an AudioContext to allow inheritance and additional properties.",
   "main": "index.js",
   "scripts": {
